@@ -8,7 +8,7 @@ pipeline{
          }
         stage('Upload to AWS') {
               steps {
-                  withAWS(region:'eu-west-3',credentials:'Admin@1') {
+                  withAWS(region:'us-east-2',credentials:'aws-static') {
                   sh 'echo "Uploading content with AWS creds"'
                       s3Upload(pathStyleAccessEnabled: true, payloadSigningEnabled: true, file:'index.html', bucket:'kenneth-cicd')
                 }
